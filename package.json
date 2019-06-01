@@ -1,6 +1,5 @@
 {
   "name": "netlify-express",
-  "version": "0.0.1",
   "scripts": {
     "build": "netlify-lambda build express",
     "start": "node server-local.js"
