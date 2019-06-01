@@ -1,8 +1,8 @@
 {
   "name": "netlify-express",
   "scripts": {
-    "build": "netlify-lambda build express",
-    "start": "node server-local.js"
+    "build": "netlify-lambda build server",
+    "start": "node local.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
