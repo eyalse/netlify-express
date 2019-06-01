@@ -1,4 +1,3 @@
-'use strict';
 const express = require('express');
 const serverless = require('serverless-http');
 const uuidv4 = require('uuid/v4')
@@ -27,6 +26,7 @@ let items = [
 ]
 
 const router = express.Router();
+
 router
   .get('/items.json', (req, res) => {
     res.json(items)
@@ -47,6 +47,7 @@ router
     res.json(items)
   })
 
-  app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+
 module.exports = app;
 module.exports.handler = serverless(app);
