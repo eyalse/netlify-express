@@ -1,7 +1,7 @@
 {
   "name": "netlify-express",
   "scripts": {
-    "build": "netlify-lambda build server",
+    "build": "netlify-lambda build express",
     "start": "node local.js"
   },
   "dependencies": {
