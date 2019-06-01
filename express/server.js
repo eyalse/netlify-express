@@ -1,12 +1,12 @@
-const express = require('express');
-const serverless = require('serverless-http');
-const uuidv4 = require('uuid/v4')
-const bodyParser = require('body-parser');
+import express, { Router } from 'express';
+import serverless from 'serverless-http';
+import uuidv4 from 'uuid/v4';
+import { json, urlencoded } from 'body-parser';
 const app = express();
 
 app
-  .use(bodyParser.json())
-  .use(bodyParser.urlencoded({ extended: true }))
+  .use(json())
+  .use(urlencoded({ extended: true }))
   .use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
@@ -25,7 +25,7 @@ let items = [
   { id: uuidv4(), item: 'Make an awesome app' }
 ]
 
-const router = express.Router();
+const router = Router();
 
 router
   .get('/items.json', (req, res) => {
@@ -49,5 +49,5 @@ router
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
-module.exports = app;
-module.exports.handler = serverless(app);
+export default app;
+export const handler = serverless(app);
